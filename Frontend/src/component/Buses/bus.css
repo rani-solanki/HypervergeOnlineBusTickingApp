@@ -1,0 +1,20 @@
+.selector-for-some-widget {
+  box-sizing:content-box;
+}
+
+.card-header{
+  background-color:lightblue;
+  width: auto;
+  height: inherit;
+}
+.box-size{
+  height: auto;
+  width: auto;
+}
+
+p {
+  margin-top:5px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+}
