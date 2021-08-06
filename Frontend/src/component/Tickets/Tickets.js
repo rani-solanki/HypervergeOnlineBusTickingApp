@@ -8,6 +8,7 @@ const Tickets = ({ getTickets, tickets, tickets: { _id }, cancelTicket }) => {
     let count = 0;
     getTickets();
     let Tickets = tickets
+    console.log(Tickets._id)
     return (
         <Fragment>
             <div className="container-fluid">

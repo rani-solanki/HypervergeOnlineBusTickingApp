@@ -63,7 +63,9 @@ img {
 }
 
 .text-center {
-  text-align: rightside;
+  text-align: center;
+  width: 45%;
+  margin-bottom: -5%;
 }
 
 .text-primary {
@@ -237,6 +239,15 @@ img {
 /* Forms */
 .form .form-group {
   margin: 1.2rem 0;
+  
+}
+
+.scrollbar {
+  /* background-color: #eee; */
+  width: auto;
+  height: 50%;
+  border: 1px solid rgb(185, 186, 187);
+  overflow-y: scroll;
 }
 
 .form .form-text {
@@ -553,7 +564,7 @@ body {
 /* seats making */
 
 .plane {
-  margin: 50px 0px;
+  margin: 50px 0px 0px 20px;
   max-width: 300px;
   background-color: rgba(255, 255, 255, 0.534);
   border-radius:5px;
@@ -763,6 +774,7 @@ ol {
 }
 
 .seatfrm{
+  margin-top: 7.5%;
   border:2px solid white;
   padding-top: 25px;
 }
@@ -772,8 +784,23 @@ ol {
 }
 
 .form-check{
-  margin-left: 32px;
+  margin-left: 15%;
   margin-top:5px;
+}
+
+.form {
+  width: 50%;
+  margin-left: 40%;
+}
+
+/* .form::-webkit-scrollbar {
+  width: 10px;
+} */
+
+.form-control {
+  margin-left: 15%;
+  width: 70%;
+  margin-top: 5%;
 }
 
 .seatBT{
@@ -785,12 +812,26 @@ ol {
   display:none;
 }
 
+.button {
+  margin-left: 55.5%;
+}
+
 .activeArrow2 {
   color:red;
   position: absolute;
   margin-top:50px;
   left: 370px;
   animation: bounce 0.5s infinite linear;
+}
+
+@media screen and (max-width: 667px) {
+  .form {
+    width: 100%;
+    margin-left: 0;
+  }
+  .button {
+  margin-left: 25%;
+}
 }
 
 @-webkit-keyframes bounce {
