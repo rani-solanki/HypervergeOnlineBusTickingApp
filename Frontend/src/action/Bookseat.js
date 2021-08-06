@@ -48,9 +48,8 @@ export const getTickets = () => async dispatch => {
     try {
         const res = await axios.get('/api/auth/tickets/ticket', config);
         console.log("Tickets", res.data)
-
         dispatch({
-            type: TICKETS_FOUND,
+            type: TICKETS,
             payload: res.data
         });
     } catch (err) {

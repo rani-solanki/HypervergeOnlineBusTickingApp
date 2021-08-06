@@ -5,7 +5,7 @@ import { STATUS_ERROR, FIND_BUSSTATUS } from "./type";
 // Get the bus current bus status
 export const getBusStatus = (busId) => async(dispatch) =>{
     try {
-        const res = await axios.get(`http://localhost:1900/api/buses/status/${busId}`);
+        const res = await axios.get(`/api/buses/status/${busId}`);
         if (res) {
             return dispatch({
                 type: FIND_BUSSTATUS,

@@ -1,24 +1,27 @@
-import React, { Fragment,useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import propTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { cancelTicket } from '../../action/Bookseat';
+import { getTickets } from '../../action/Bookseat';
 
-const Tickets = ({ Tickets, cancelTicket }) =>{
+const Tickets = ({ getTickets, tickets, tickets: { _id }, cancelTicket }) => {
     let count = 0;
+    getTickets();
+    let Tickets = tickets
     return (
         <Fragment>
             <div className="container-fluid">
                 <div className="ticket-info text-center mt-2">
                     <h3>Your Tickets </h3>
                     <div className="card">
-                        {Tickets.map(ticket =>(
+                        {Tickets.map(ticket => (
                             <Fragment>
                                 <div className="card-body d-flex">
                                     <div className="col-auto">
                                         {count += 1}
                                     </div>
                                     <div className="col d-flex">
-                                        {ticket.passengers.map(passenger=>(
+                                        {ticket.passengers.map(passenger => (
                                             <Fragment>
                                                 <div className="col-auto seat_no_sec d-flex">
                                                     <div className="seat_no">
@@ -41,33 +44,29 @@ const Tickets = ({ Tickets, cancelTicket }) =>{
                                         ))}
                                         <div className="col-auto d-flex">
                                             <div className="journey_date">
-                                                journeyDate :
-                                            </div>
-                                            <div>
-                                                {ticket.journeyDate.slice(0, 10)}
+                                                journeyDate :{ticket.journeyDate.slice(0, 10)}
                                             </div>
                                         </div>
                                         <div className="col-auto d-flex">
                                             <div>
-                                                Booked At :
+                                                Booked At: {ticket.createdAt.slice(0, 10)}
                                             </div>
+                                        </div>
+                                        <div className="col-auto d-flex">
                                             <div>
                                                 {ticket.createdAt.slice(0, 10)}
                                             </div>
-                                    </div>
-                                    <div className="col-auto d-flex">
-                                        <div>
-                                            Fare 500
                                         </div>
-                                        <div>
-                                            {ticket.createdAt.slice(0, 10)}
-                                        </div>
-                                    </div>
                                         <div className="col">
-                                            <button type="submit" className="btn btn-outline-danger" id = "Tickets" onClick={(e) =>(e.target.id)}>Cancel Ticket</button>
+                                            <div>
+                                                {(<button type="button" className="btn btn-danger" onClick={e => cancelTicket(_id)}>
+                                                    <strong>Cancel</strong>
+                                                </button>)}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </Fragment>
                         ))}
                     </div>
@@ -78,11 +77,13 @@ const Tickets = ({ Tickets, cancelTicket }) =>{
 }
 Tickets.propTypes = {
     cancelTicket: propTypes.func.isRequired,
-    Tickets:propTypes.object.isRequired
+    tickets: propTypes.object.isRequired,
+    getTickets: propTypes.func.isRequired
 }
 
-const mapStateToProps = (state) =>({
-    Tickets: state.Tickets.Tickets
+const mapStateToProps = (state) => ({
+    tickets: state.tickets.tickets
 })
 
-export default connect(mapStateToProps, {cancelTicket})(Tickets)
+export default connect(mapStateToProps, { getTickets, cancelTicket })(Tickets)
+

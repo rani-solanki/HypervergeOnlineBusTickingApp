@@ -24,5 +24,5 @@ export const ADD_BUS = 'ADD_BUS';
 export const ADD_BUS_FAILED = 'ADD_BUS_FAILED';
 export const CANCEL_TICKET = "CANCEL_TICKET";
 export const CANNOT_CANCEL = "CANNOT_CANCEL";
-export const TICKETS_FOUND = " TICKETS_FOUND";
+export const TICKETS = " TICKETS_FOUND";
 export const NO_TICKETS = "NO_TICKETS";

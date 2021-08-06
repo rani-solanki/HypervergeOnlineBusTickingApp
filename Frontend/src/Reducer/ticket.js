@@ -1,45 +1,58 @@
-const {
+import {
     CANNOT_CANCEL,
     CANCEL_TICKET,
-    TICKETS_FOUND,
-    NO_TICKET,
+    TICKETS,
+    NO_TICKETS,
     BOOKING_FAIL,
     BOOKING_SUCCESS,
-} = '../../action/type';
+} from '../action/type';
 
-const initialState = {
-    tickets: {},
+const initialState ={
+    tickets:[],
     loading: true,
     error: {}
 };
 
-const tickets = (state = initialState, action) =>{
+export default function (state = initialState, action){
     const { type, payload } = action
-    console.log(type,payload)
     switch (type){
+        case TICKETS:
+            return {
+                ...state,
+                tickets: payload,
+                loading: false
+            };
         case BOOKING_SUCCESS:
-            console.log("enter in the booking")
             return {
                 ...state,
                 ...payload,
                 loading: false
             };
-        case TICKETS_FOUND:
-            console.log("enter in the tickets")
+        case NO_TICKETS:
             return {
                 ...state,
-                tickets: {...payload},
+                error: payload,
                 loading: false
-            };
+            }
         case BOOKING_FAIL:
             return {
                 ...state,
                 error: payload,
                 loading: false
             }
+        case CANCEL_TICKET:
+            return {
+                ...state,
+                error: payload,
+                loading:false
+            }
+        case CANNOT_CANCEL:
+            return {
+                ...state,
+                error:payload
+            }
         default:
             return state;
     }
 }
-export default tickets
 

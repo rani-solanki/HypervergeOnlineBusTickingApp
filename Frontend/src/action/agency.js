@@ -8,7 +8,7 @@ const Agency = ({ phone,agencyName,headOfficeLocation })=> async dispatch=>{
             'Content-Type': 'application/json'
         }
     };
-
+    
     const body = JSON.stringify({ phone, agencyName, headOfficeLocation });
     console.log(body)
     try {

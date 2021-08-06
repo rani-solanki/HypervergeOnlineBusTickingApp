@@ -6,7 +6,7 @@ import busStatus from './busStatus';
 import Agency from './Agency';
 import Staff from './Staff';
 import Location from './Location';
-import Buse from './Bus';
+import Buses from './Bus';
 import tickets from './ticket';
 
 export default combineReducers({
@@ -17,6 +17,8 @@ export default combineReducers({
     Agency,
     Staff,
     Location,
-    Buse,
+    Buses,
     tickets
 });
+
+
