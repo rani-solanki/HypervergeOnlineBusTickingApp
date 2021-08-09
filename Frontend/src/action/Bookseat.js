@@ -3,7 +3,7 @@ import setAlert from './aleart';
 import {
     BOOKING_FAIL,
     BOOKING_SUCCESS,
-    TICKETS_FOUND,
+    TICKETS,
     NO_TICKETS,
     CANCEL_TICKET,
     CANNOT_CANCEL
