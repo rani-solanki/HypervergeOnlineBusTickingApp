@@ -398,8 +398,9 @@ BookTicket.propTypes = {
     busStatus: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = state =>({
     busStatus: state.busStatus,
     buses: state.searchBus.buses
 })
+
 export default connect(mapStateToProps, { bookSeats, getBusStatus })(BookTicket);

@@ -1,0 +1,13 @@
+
+> puppeteer@10.2.0 install /home/rani/Documents/Red_bus_app/node_modules/puppeteer
+> node install.js
+
+Chromium (901912) downloaded to /home/rani/Documents/Red_bus_app/node_modules/puppeteer/.local-chromium/linux-901912
++ puppeteer@10.2.0
+added 17 packages from 18 contributors, removed 1 package and audited 1818 packages in 130.593s
+
+101 packages are looking for funding
+  run `npm fund` for details
+
+found 154 vulnerabilities (4 low, 1 moderate, 149 high)
+  run `npm audit fix` to fix them, or `npm audit` for details

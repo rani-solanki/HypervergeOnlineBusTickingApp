@@ -31,7 +31,6 @@ const Tickets = ({ getTickets, tickets, tickets: { _id }, cancelTicket }) => {
                                                     <div className="seat_no">
                                                         {passenger.seat_no}
                                                     </div>
-
                                                 </div>
                                                 <div className="col-auto passenger_name_sec  d-flex">
                                                     <div className="passenger_name">
