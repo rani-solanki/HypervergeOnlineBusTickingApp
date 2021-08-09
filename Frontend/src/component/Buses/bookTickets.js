@@ -324,28 +324,28 @@ const BookTicket = ({ bookSeats, buses, match, busStatus: { loading, status }, g
                                             <form className="form seatfrm">
                                                 <p className="text-capitalize text-center">Seat No {Seats}</p>
                                                 <input
-                                                    className="form-control seatInp"
+                                                    className="form-controls seatInp"
                                                     type="String"
                                                     name="passenger-Name"
                                                     placeholder="Enter Name"
                                                     onChange={(e) => PassengerName(e)}
                                                 />
                                                 <input
-                                                    className="form-control seatInp"
+                                                    className="form-controls seatInp"
                                                     type="int"
                                                     name="passenger-age"
                                                     placeholder="Enter Age "
                                                     onChange={(e) => PassengerAge(e)}
                                                 />
                                                 <input
-                                                    className="form-control seatInp"
+                                                    className="form-controls seatInp"
                                                     type="int"
                                                     name="passenger-PhoneNumber"
                                                     placeholder="Enter Phone Number"
                                                     onChange={(e) => PassengerPhone(e)}
                                                 />
                                                 <input
-                                                    className="form-control seatInp"
+                                                    className="form-controls seatInp"
                                                     type="String"
                                                     name="passenger-email"
                                                     placeholder="Enter email"

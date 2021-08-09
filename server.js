@@ -1,12 +1,11 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const dbConnect = require('./config/db.js');
-const path = require('path');
-
+const path = require('path'); 
 var cors = require('cors')
 const app = express()
 app.use(cors())
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const userRoutes = require('./router/api/users');
@@ -29,7 +28,7 @@ app.use((err, req, res, next) => {
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
-    app.use(express.static(path.join(__dirname, "Frontend", "build")));
+    app.use(express.static("Frontend/build"));
     app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, 'Frontend', 'build', 'index.html'))
     });
