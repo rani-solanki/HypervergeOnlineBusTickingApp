@@ -63,7 +63,7 @@ export const adminregister = ({ name, email, password, isAdmin }) => async dispa
     }
     const body = JSON.stringify({ name, email, password, isAdmin });
     try {
-        const res = await axios.post('http://localhost:1900/api/admins/signup', body, config);
+        const res = await axios.post('/api/admins/signup', body, config);
         console.log(res)
         dispatch({
             type: REGISTER_SUCCESS,
@@ -92,7 +92,7 @@ export const login = (email, password) => async dispatch => {
     }
     const body = JSON.stringify({ email, password });
     try {
-        const res = await axios.post('http://localhost:1900/api/auth/login', body, config);
+        const res = await axios.post('/api/auth/login', body, config);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
@@ -124,7 +124,7 @@ export const adminlogin = (email, password) => async dispatch => {
 
     try {
         console.log(email,password)
-        const res = await axios.post('http://localhost:1900/api/adminauth/login', body, config);
+        const res = await axios.post('/api/adminauth/login', body, config);
         console.log(res)
         dispatch({
             type: LOGIN_SUCCESS,
