@@ -21,8 +21,9 @@ const validations = (req) => {
 const userSignup = async (req, res, next) =>{
     console.log("from backend",req.body)
     const error = validations(req)
+    console.log(error)
     if (error) {
-        return next({ status: 401, err: "server error" })
+        return next({ status: 401, err: "validation error" })
     }
 
     const { name, email, password } = req.body;

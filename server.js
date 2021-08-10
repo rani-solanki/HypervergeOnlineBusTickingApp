@@ -1,12 +1,14 @@
 const express = require('express');
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const dbConnect = require('./config/db.js');
 const path = require('path'); 
 var cors = require('cors')
 const app = express()
 app.use(cors())
+
+app.use(express.json({ extended: false }));
 // app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 const userRoutes = require('./router/api/users');
 const authRoutes = require('./router/api/auth');
