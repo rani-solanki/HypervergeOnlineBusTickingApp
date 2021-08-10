@@ -18,12 +18,13 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token);
     }
     try {
-        const res = await axios.get('/api/auth/Auth');
+        const res = await axios.get('api/auth/Auth');
         dispatch({
             type: USER_LOADED,
             payload: res.data
         });
     } catch (err) {
+        console.log("erro from action", err)
         dispatch({
             type: AUTH_ERROR
         });
@@ -37,7 +38,7 @@ export const register = ({ name, email, password }) => async dispatch =>{
     }
     const body = JSON.stringify({ name, email, password });
     try {
-        const res = await axios.post('/api/users/signup', body, config);
+        const res = await axios.post('api/users/signup', body, config);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -45,6 +46,7 @@ export const register = ({ name, email, password }) => async dispatch =>{
         alert('user Ragister SuccesFully', 'danger')
         dispatch(loadUser());
     } catch (err) {
+        console.log("erro from action",err)
         const errors = err.response.data.err;
         alert("user is Aleardy exit")
         if (errors) {
@@ -63,15 +65,15 @@ export const adminregister = ({ name, email, password, isAdmin }) => async dispa
     }
     const body = JSON.stringify({ name, email, password, isAdmin });
     try {
-        const res = await axios.post('/api/admins/signup', body, config);
-        console.log(res)
+        const res = await axios.post('api/admins/signup', body, config);
+        console.log("Ragister",res)
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
         });
-
         alert("Admin Ragister succesfully")
     } catch (err) {
+        console.log("erro from action", err)
         const errors = err.response.data.err;
         alert("user is Aleardy exit")
         if (errors) {
@@ -92,7 +94,7 @@ export const login = (email, password) => async dispatch => {
     }
     const body = JSON.stringify({ email, password });
     try {
-        const res = await axios.post('/api/auth/login', body, config);
+        const res = await axios.post('api/auth/login', body, config);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
@@ -101,6 +103,7 @@ export const login = (email, password) => async dispatch => {
         alert("User is Login Succesfully")
         dispatch(loadUser());
     } catch (err) {
+        console.log("erro from action", err)
         const errors = err.response.data.errors;
         if (errors) {
             alert("Invalid credentials")
@@ -124,7 +127,7 @@ export const adminlogin = (email, password) => async dispatch => {
 
     try {
         console.log(email,password)
-        const res = await axios.post('/api/adminauth/login', body, config);
+        const res = await axios.post('api/adminauth/login', body, config);
         console.log(res)
         dispatch({
             type: LOGIN_SUCCESS,
@@ -133,6 +136,7 @@ export const adminlogin = (email, password) => async dispatch => {
         alert("Admin is Login Succesfully")
         dispatch(loadUser());
     } catch (err) {
+        console.log("erro from action", err)
         const errors = err.response.data.errors;
         if (errors) {
             alert("Invalid credentials")
